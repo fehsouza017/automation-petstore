@@ -88,10 +88,10 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-		<dependency>
+	<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>30.1.1-jre</version>
+			<version>r05</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4 -->

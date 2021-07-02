@@ -12,16 +12,14 @@ public class UserBuilder {
 UserB user;
 private String jsonProviderBody;
 
-public String createUsers(int sufix) {
+public String createUsers(String username,String firstName,String lastName,String email,String password, String phone) {
 
-	user.setId(sufix);
-	user.setUsername("");
-	user.setFirstName("");
-	user.setLastName("");
-	user.setEmail("");
-	user.setPassword("");
-	user.setPhone("");
-	user.setUserStatus(sufix);
+	user.setUsername(username);
+	user.setFirstName(firstName);
+	user.setLastName(lastName);
+	user.setEmail(email);
+	user.setPassword(password);
+	user.setPhone(phone);
 	return jsonParse(user);
 }
 

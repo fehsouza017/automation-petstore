@@ -4,10 +4,10 @@ Funcionalidade: Ciar Usuarios
 
   @create-users
   Esquema do Cenário: "<Cenario>" - "<DescricaoDoCenario>"
-    Dado que eu queira criar um usuario "<username>"
-    Quando eu preencher os dados necessarios "<firstName>", "<lastName>", "<email>", "<password>", "<phone>"
+    Dado que eu queira criar um usuario 
+    Quando eu preencher os dados necessarios "<username>", "<firstName>", "<lastName>", "<email>", "<password>", "<phone>"
     E clicar em send
-    Então o meu usuario criado com sucesso
+    Então o meu usuario é criado com sucesso
 
     Exemplos: 
       | Cenario     | DescricaoDoCenario   | username | firstName | lastName  | email             | password | phone       |

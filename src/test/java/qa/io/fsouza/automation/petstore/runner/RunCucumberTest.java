@@ -10,7 +10,7 @@ import qa.io.fsouza.automation.petstore.config.SpringIntegrationTest;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(tags = "@delete-user",
+@CucumberOptions(tags = "@create-users",
 
 		plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json" },
 		monochrome = true,
