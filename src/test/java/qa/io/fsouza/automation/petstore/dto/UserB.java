@@ -1,4 +1,4 @@
-package qa.io.fsouza.automation.petstore.entitys;
+package qa.io.fsouza.automation.petstore.dto;
 
 import org.springframework.stereotype.Component;
 

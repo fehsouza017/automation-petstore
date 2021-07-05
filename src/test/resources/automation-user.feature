@@ -4,7 +4,7 @@ Funcionalidade: Ciar Usuarios
 
   @create-users
   Esquema do Cenário: "<Cenario>" - "<DescricaoDoCenario>"
-    Dado que eu queira criar um usuario 
+    Dado que eu queira criar um usuario
     Quando eu preencher os dados necessarios "<username>", "<firstName>", "<lastName>", "<email>", "<password>", "<phone>"
     E clicar em send
     Então o meu usuario é criado com sucesso
@@ -19,8 +19,8 @@ Funcionalidade: Ciar Usuarios
 
   @list-users
   Esquema do Cenário: "<Cenario>" - "<DescricaoDoCenario>"
-    Dado que eu queira criar uma lista de usuarios "<username>"
-    Quando eu informar todos os meus dados necessarios "<firstName>", "<lastName>", "<email>", "<password>", "<phone>"
+    Dado que eu queira criar uma lista de usuarios 
+    Quando eu informar todos os meus dados necessarios "<username>", "<firstName>", "<lastName>", "<email>", "<password>", "<phone>"
     E enviar em send
     Então tenho minha lista de usuarios criada com sucesso
 
@@ -57,14 +57,14 @@ Funcionalidade: Ciar Usuarios
 
   @update-data
   Esquema do Cenário: "<Cenario>" - "<DescricaoDoCenario>"
-    Dado que eu queira atualizar meus dados
-    Quando eu informar os dados que desejo alterar "<username>", "<firstName>", "<lastName>", "<email>", "<password>", "<phone>"
+    Dado que eu queira atualizar meus dados "<nameUser>"
+    Quando eu informar os dados que desejo alterar <id>, "<username>", "<firstName>", "<lastName>", "<email>", "<password>", "<phone>", <userStatus>
     E enviar o request
     Então tenho meus dados atualizados com sucesso
 
     Exemplos: 
-      | Cenario     | DescricaoDoCenario         | username  | firstName | lastName | email             | password | phone       |
-      | CN001.CT001 | atualizar dados do usuario | juniooor1 | junioor   | test     | juju001@uorak.com | j1234567 | 11988624317 |
+      | Cenario     | DescricaoDoCenario         | nameUser | id | username | firstName | lastName | email                | password | phone       | userStatus |
+      | CN001.CT001 | atualizar dados do usuario | fersouza | 11 | lsouza   | feh       | sjrp     | fehsjrp017@uorak.com | j1234567 | 11988624317 |          0 |
 
   @logout-user
   Cenário: fazer logout
@@ -81,4 +81,4 @@ Funcionalidade: Ciar Usuarios
 
     Exemplos: 
       | Cenario     | DescricaoDoCenario | usuary |
-      | CN001.CT001 | deletar um usuario | lk01   |
+      | CN001.CT001 | deletar um usuario | abc    |

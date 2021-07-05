@@ -21,7 +21,11 @@ public class Users {
 
 	private String body;
 	private ValidatableResponse arm;
+	private String usuario;
+	private String senha;
+	private String nameUser;
 
+	
 	@Dado("que eu queira criar um usuario")
 	public void queEuQueiraCriarUmUsuario() {
 		System.out.println("Criando um usuario");
@@ -48,20 +52,22 @@ public class Users {
 	}
 
 	// Criar lista de usuarios
-	@Dado("que eu queira criar uma lista de usuarios {string}")
-	public void queEuQueiraCriarUmaListaDeUsuarios(String username) {
+	@Dado("que eu queira criar uma lista de usuarios")
+	public void queEuQueiraCriarUmaListaDeUsuarios() {
 		System.out.println("Criando uma lista de usuarios");
 	}
 
-	@Quando("eu informar todos os meus dados necessarios {string}, {string}, {string}, {string}, {string}")
-	public void euInformarTodosOsMeusDadosNecessarios(String firstName, String lastName, String email, String password,
-			String phone) {
+	@Quando("eu informar todos os meus dados necessarios {string}, {string}, {string}, {string}, {string}, {string}")
+	public void euInformarTodosOsMeusDadosNecessarios(String username, String firstName, String lastName, String email, String password, String phone) {
 		System.out.println("Informando os meus dados necessarios");
+		body = userBuilder.createListUsers(username, firstName, lastName, email, password, phone);
+		
 	}
 
 	@Quando("enviar em send")
-	public void enviarEmSend() {
+	public void enviarEmSend() throws IOException {
 		System.out.println("clicando em send");
+		userAction.createListUser(body);
 	}
 
 	@Então("tenho minha lista de usuarios criada com sucesso")
@@ -81,8 +87,11 @@ public class Users {
 	}
 
 	@Quando("eu digitar meus dados de acesso {string}, {string}")
-	public void euDigitarMeusDadosDeAcesso(String usuario, String senha) {
+	public void euDigitarMeusDadosDeAcesso(String usuario, String senha) throws IOException {
 		System.out.println("Digitando meus dados de acesso");
+		this.usuario = usuario;
+		this.senha = senha;
+		arm = userAction.loginUser(usuario, senha);
 	}
 
 	@Quando("utilizar o botao send")
@@ -102,8 +111,11 @@ public class Users {
 	}
 
 	@Quando("eu digitar meu usuario {string}")
-	public void euDigitarMeuUsuario(String usuario) {
+	public void euDigitarMeuUsuario(String usuario) throws IOException {
 		System.out.println("Digitando meu usuario");
+		this.usuario = usuario;
+		arm = userAction.findUser(usuario);
+		
 	}
 
 	@Quando("mandar com o botao send")
@@ -117,20 +129,22 @@ public class Users {
 	}
 
 	// Atualizar dados
-	@Dado("que eu queira atualizar meus dados")
-	public void queEuQueiraAtualizarMeusDados() {
+	@Dado("que eu queira atualizar meus dados {string}")
+	public void queEuQueiraAtualizarMeusDados(String nameUser) {
 		System.out.println("Atualizando meus dados");
+		this.nameUser = nameUser;
 	}
 
-	@Quando("eu informar os dados que desejo alterar {string}, {string}, {string}, {string}, {string}, {string}")
-	public void euInformarOsDadosQueDesejoAlterar(String username, String firstName, String lastName, String emaiil,
-			String password, String phone) {
+	@Quando("eu informar os dados que desejo alterar {int}, {string}, {string}, {string}, {string}, {string}, {string}, {int}")
+	public void euInformarOsDadosQueDesejoAlterar(Integer id, String username, String firstName, String lastName, String email, String password, String phone, Integer userStatus) {
 		System.out.println("Informando meus dados que desejo alterar");
+		body = userBuilder.updateDataUsers(id, username, firstName, lastName, email, password, phone, userStatus);
 	}
 
 	@Quando("enviar o request")
-	public void enviarORequest() {
+	public void enviarORequest() throws IOException {
 		System.out.println("Enviando o request");
+		userAction.updateUser(body, nameUser);
 	}
 
 	@Então("tenho meus dados atualizados com sucesso")
@@ -145,8 +159,9 @@ public class Users {
 	}
 
 	@Quando("eu clicar no botao de logout")
-	public void euClicarNoBotaoDeLogout() {
+	public void euClicarNoBotaoDeLogout() throws IOException {
 		System.out.println("Clicando no botao logout");
+		userAction.logoutUser();
 	}
 
 	@Então("tenho meu logout feito com sucesso")
@@ -161,8 +176,9 @@ public class Users {
 	}
 
 	@Quando("eu informar meu usuario {string}")
-	public void euInformarMeuUsuario(String usuary) {
+	public void euInformarMeuUsuario(String usuary) throws IOException {
 		System.out.println("Informando o usuario");
+		userAction.deleteUser(usuary);
 	}
 
 	@Quando("mandar a request")
