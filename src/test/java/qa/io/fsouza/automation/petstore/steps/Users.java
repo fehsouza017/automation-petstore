@@ -61,13 +61,14 @@ public class Users {
 	public void euInformarTodosOsMeusDadosNecessarios(String username, String firstName, String lastName, String email, String password, String phone) {
 		System.out.println("Informando os meus dados necessarios");
 		body = userBuilder.createListUsers(username, firstName, lastName, email, password, phone);
-		
+		System.out.println(body);
 	}
 
 	@Quando("enviar em send")
 	public void enviarEmSend() throws IOException {
 		System.out.println("clicando em send");
 		userAction.createListUser(body);
+		
 	}
 
 	@Então("tenho minha lista de usuarios criada com sucesso")

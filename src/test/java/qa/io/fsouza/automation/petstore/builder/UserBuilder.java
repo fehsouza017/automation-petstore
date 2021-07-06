@@ -10,15 +10,12 @@ import org.springframework.stereotype.Component;
 
 import io.cucumber.messages.internal.com.google.gson.Gson;
 import qa.io.fsouza.automation.petstore.dto.UserB;
-import qa.io.fsouza.automation.petstore.dto.UserList;
 
 @Component
 public class UserBuilder {
 @Autowired
 UserB user;
 
-@Autowired
-UserList userList;
 private String jsonProviderBody;
 
 public String createUsers(String username,String firstName,String lastName,String email,String password, String phone) {
@@ -42,8 +39,7 @@ public String createListUsers(String username,String firstName,String lastName,S
 	user.setPassword(password);
 	user.setPhone(phone);
 	userListar.add(user);
-	userList.setUsers(userListar);
-	return jsonParse(userList);
+	return jsonParse(userListar);
 }
 
 public String updateDataUsers(int id, String username,String firstName,String lastName,String email,String password, String phone, int userStatus) {
