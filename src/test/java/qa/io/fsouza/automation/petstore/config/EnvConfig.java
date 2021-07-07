@@ -16,6 +16,7 @@ public class EnvConfig {
 	private String username;
 	private String password;
 	private String baseUrl;
+	private String api_key;
 
 	public void init() throws IOException {
 
@@ -27,6 +28,7 @@ public class EnvConfig {
 			this.username = "";
 			this.password = "";
 			this.baseUrl = "https://petstore.swagger.io/v2";
+			this.api_key= "JUOGHJ";
 
 			break;
 
@@ -37,6 +39,7 @@ public class EnvConfig {
 			this.username = "";
 			this.password = "";
 			this.baseUrl = "https://petstore.swagger.io/v2";
+			this.api_key= "JUOGHJ";
 
 			break;
 
@@ -47,6 +50,7 @@ public class EnvConfig {
 			this.username = "";
 			this.password = "";
 			this.baseUrl = "https://petstore.swagger.io/v2";
+			this.api_key= "JUOGHJ";
 
 			break;
 		}
@@ -72,4 +76,9 @@ public class EnvConfig {
 	public String getBaseUrl() {
 		return baseUrl;
 	}
+	
+	public String getApi_key() {
+		return api_key;
+	}
+
 }

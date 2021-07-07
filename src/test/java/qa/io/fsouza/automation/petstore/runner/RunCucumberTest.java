@@ -10,7 +10,7 @@ import qa.io.fsouza.automation.petstore.config.SpringIntegrationTest;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(tags = "@list-users",
+@CucumberOptions(tags = "@upload-image-pet",
 
 		plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json" },
 		monochrome = true,
